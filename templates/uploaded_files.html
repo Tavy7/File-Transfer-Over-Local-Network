@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Uploaded files</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/template.css') }}">
+</head>
+
+<body>
+  <article>
+    <h1>Files</h1>
+    <p>Text</p>
+
+    <table>
+      {% for nume in result %}
+      <tr>
+        <td> {{ nume }} </td>
+      </tr>
+      {% endfor %}
+    </table>
+    
+    <script src="{{ url_for('static', filename='scripts/home.js') }}"></script>
+    <div class="login">
+      <form>
+        <input type="text" placeholder="Username">
+      </form>
+    </div>
+
+  </article>
+  <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
+</body>
+
+<footer>
+  <a href="{{ url_for('home') }}">Home</a>
+  <a href="{{ url_for('uploads') }}">Upload</a>
+  <a href="{{ url_for('upload_main')}}">Uploaded files</a>
+</footer>
+
+</html>

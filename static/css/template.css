@@ -1,0 +1,69 @@
+body{
+    background-color: #787878; 
+}
+
+a{
+    color: white;
+}
+p{
+    color: black;
+}
+
+h1{
+    color: darkslategray;
+}
+
+form{
+    border-style: solid;
+    border-color: gainsboro;
+    border-width: 0.5px;
+}
+
+.upload_files{
+    background-color:white;
+    width: 20em;
+    max-width: 25em;
+    height: auto;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.login{
+    background-color: white;
+    width: fit-content;
+    height: auto;
+
+    position: fixed;
+    top: 5%;
+    right: 25%;
+}
+
+article{
+    position: fixed;
+    top: 10%;
+    margin-top: -100px;
+    padding-top: 25px;
+    left: 25%;
+    margin-left: -100px;
+    padding-left: 25px;
+    background-color: #A9A9A9;
+    width: 60%;
+    height: 100%;
+}
+
+td, tr{
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+}
+
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2em;
+    background-color: #181818;
+    text-align: center;
+}
