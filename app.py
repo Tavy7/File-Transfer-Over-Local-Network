@@ -3,12 +3,12 @@
 from flask import Flask
 from flask import render_template as rt
 from flask import request, redirect, send_from_directory
-from static.python.user import User, getId
+from static.python.user import User, getId, saveUsers, loadUsers
 import socket
 import os
 
 app = Flask(__name__)
-users = []
+users = loadUsers()
 
 host_name = socket.gethostname()
 ip = socket.gethostbyname(host_name)
@@ -20,8 +20,15 @@ def home():
 
 @app.route('/<username>')
 def userHome(username):
-    user = User(username)
-    users.append(user)
+    ok = 0
+    for user in users:
+        if user.name == username:
+            ok = 1
+    
+    if ok == 0:
+        users.append(User(username))
+        saveUsers(users)
+    
     return rt('home.html')
 
 @app.route('/uploads/')
@@ -50,14 +57,12 @@ def upload(user):
                 return '404 Not found!'
 
             #filename = secure_filename(uploadFile.filename)
-            uploadFile.save("uploaded-files\\" + str(id) + "\\" + str(uploadFile.filename))
+            uploadFile.save("uploaded-files/" + str(id) + "/" + str(uploadFile.filename))
             return redirect('/')
     
     return rt('uploads.html')
 
-# momentan javacsript face reroute
-# de creeat route nou
-# de shcibat
+# link de download
 @app.route('/uploaded-files/<int:user_id>/redirect')
 def uploaded_files(user_id):
     fisiere = os.listdir('uploaded-files/' + str(user_id) + '/')
@@ -79,10 +84,13 @@ def upload_main():
 def download(user_id, filename):   
     return send_from_directory(directory='uploaded-files/' + str(user_id) + '/', filename=filename, as_attachment=True)
 
+@app.route('/ghe')
+def datarstabinee():
+    return '<iframe width="560" height="315" src="https://www.youtube.com/embed/-VBnSaKLe84" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' * 6
+
+
 app.debug = True
 ip = '192.168.1.107'
-
-users.append(User('Doru'))
-users.append(User('Tav'))
+ip = '0.0.0.0'
 
 app.run(host=ip, port=5000)
