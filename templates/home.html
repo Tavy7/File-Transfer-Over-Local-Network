@@ -8,7 +8,15 @@
 </head>
 
 <body>
-    <article>
+    <header class="middle">
+        <nav>
+            <a class="active" href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('uploads') }}">Upload</a>
+            <a href="{{ url_for('upload_main')}}">Uploaded files</a>
+        </nav>
+    </header>
+
+    <article class="middle">
         <h1>Home</h1>
         <p>Poti uploada sau descarca fisiere.</p>
 
@@ -21,8 +29,8 @@
     </article>
 </body>
 
-<footer>
-    <a href="{{ url_for('home') }}">Home</a>
+<footer class='middle'>
+    <a class="active" href="{{ url_for('home') }}">Home</a>
     <a href="{{ url_for('uploads') }}">Upload</a>
     <a href="{{ url_for('upload_main')}}">Uploaded files</a>
 </footer>
