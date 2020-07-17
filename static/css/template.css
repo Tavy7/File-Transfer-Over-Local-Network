@@ -1,10 +1,16 @@
 body{
-    background-color: #787878; 
+    background-image: linear-gradient(100deg, #2c3e50, #bdc3c7, #2c3e50); 
 }
 
 a{
+    color: gray;
+    text-decoration: none;
+}
+
+a.active, a:hover{
     color: white;
 }
+
 p{
     color: black;
 }
@@ -20,13 +26,12 @@ form{
 }
 
 .upload_files{
-    background-color:white;
-    width: 20em;
-    max-width: 25em;
+    background-color: inherit;
+    width: fit-content;
     height: auto;
-
     display: flex;
     justify-content: space-between;
+    max-width: 30em;
 }
 
 .login{
@@ -39,30 +44,49 @@ form{
     right: 25%;
 }
 
-article{
-    position: fixed;
-    top: 10%;
-    margin-top: -100px;
-    padding-top: 25px;
-    left: 25%;
-    margin-left: -100px;
-    padding-left: 25px;
-    background-color: #A9A9A9;
-    width: 60%;
-    height: 100%;
-}
-
 td, tr{
     border-style: solid;
     border-color: black;
     border-width: 1px;
 }
 
+.middle{
+    position: fixed;
+    width: 60%;
+    left: 25%;
+    margin-left: -100px;
+    padding-left: 25px;
+
+}
+
+article{
+    height: 100%;
+    top: 10%;
+    margin-top: -100px;
+    padding-top: 50px;
+    background-color: whitesmoke;
+}
+
+header{
+    position: fixed;
+    background-color: #181818;
+    z-index: 1;
+    /*ca sa fie culoarea navigatiei pana sus*/
+    margin-top: -10px;
+    /*pentru ca textul sa se vada*/
+    padding-top: 5px;
+    max-height: 40px;
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;      
+}
+
 footer{
     position: fixed;
     left: 0;
     bottom: 0;
-    width: 100%;
     height: 2em;
     background-color: #181818;
     text-align: center;
