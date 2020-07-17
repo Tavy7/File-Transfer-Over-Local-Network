@@ -8,8 +8,20 @@
 </head>
 
 <body>
-    <article>
+
+    <header class="middle">
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a class="active" href="{{ url_for('uploads') }}">Upload</a>
+            <a href="{{ url_for('upload_main')}}">Uploaded files</a>
+        </nav>
+    </header>
+    
+    <article class="middle">
         <h1>Upload</h1>
+
+        <p>Selecteaza fisierul pe care dpresti sa il uploadezi si apasa pe 'Upload'.</p>
+        <p>Fisierele uploadate pot fi gasite in tabu-ul <a href="{{ url_for('upload_main')}}">uploaded_files</a>.</p>
 
         <div class="upload_files">
             <form enctype=multipart/form-data method="POST">
@@ -28,9 +40,9 @@
 
 </body>
 
-<footer>
+<footer class="middle">
     <a href="{{ url_for('home') }}">Home</a>
-    <a href="{{ url_for('uploads') }}">Upload</a>
+    <a class="active" href="{{ url_for('uploads') }}">Upload</a>
     <a href="{{ url_for('upload_main')}}">Uploaded files</a>
 </footer>
 
